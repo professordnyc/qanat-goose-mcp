@@ -1,0 +1,33 @@
+{
+  "name": "qanat",
+  "version": "0.1.0",
+  "description": "Square Seller Dashboard Assistant - Goose MCP-UI Extension",
+  "main": "backend/mcp_servers/qanat_server.py",
+  "scripts": {
+    "dev": "python -m backend.mcp_servers.qanat_server",
+    "start": "python -m backend.mcp_servers.qanat_server --production",
+    "test": "python -m pytest tests/",
+    "setup": "pip install -r requirements.txt",
+    "config": "python -m backend.config_loader"
+  },
+  "dependencies": {
+    "mcp": "latest",
+    "square-python-sdk": "latest",
+    "python-dotenv": "latest",
+    "elevenlabs": "latest",
+    "mediapipe": "latest",
+    "uvicorn": "latest",
+    "fastapi": "latest"
+  },
+  "devDependencies": {
+    "pytest": "latest",
+    "black": "latest",
+    "flake8": "latest"
+  },
+  "keywords": ["goose", "mcp", "square", "dashboard", "assistant"],
+  "author": "Qanat Team",
+  "license": "MIT",
+  "engines": {
+    "python": ">=3.8"
+  }
+}

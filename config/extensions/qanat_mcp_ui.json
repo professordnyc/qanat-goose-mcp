@@ -1,0 +1,47 @@
+{
+  "name": "qanat-mcp-ui",
+  "type": "mcp-ui-server",
+  "version": "0.1.0",
+  "description": "Qanat UI extension for Goose Desktop",
+  "server": {
+    "command": "python",
+    "args": ["-m", "backend.mcp_servers.qanat_server"],
+    "env": {
+      "MCP_SERVER_HOST": "${MCP_SERVER_HOST}",
+      "MCP_SERVER_PORT": "${MCP_SERVER_PORT}",
+      "MCP_SERVER_DEBUG": "${MCP_SERVER_DEBUG}"
+    }
+  },
+  "ui_components": {
+    "catalog_dashboard": {
+      "type": "table",
+      "columns": ["name", "price", "status", "actions"],
+      "actions": ["toggle_status", "view_details", "refresh"]
+    },
+    "orders_dashboard": {
+      "type": "table", 
+      "columns": ["order_id", "customer", "total", "status"],
+      "actions": ["view_details", "update_status", "refresh"]
+    },
+    "item_details": {
+      "type": "modal",
+      "fields": ["name", "description", "price", "category", "status"]
+    },
+    "order_details": {
+      "type": "modal",
+      "fields": ["id", "customer_info", "items", "total", "status", "payment_info"]
+    }
+  },
+  "routes": [
+    {
+      "path": "/catalog",
+      "component": "catalog_dashboard", 
+      "data_source": "get_catalog_items"
+    },
+    {
+      "path": "/orders",
+      "component": "orders_dashboard",
+      "data_source": "get_recent_orders"
+    }
+  ]
+}

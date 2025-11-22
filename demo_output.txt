@@ -1,0 +1,165 @@
+
+================================================================================
+QANAT MVP - SQUARE SELLER DASHBOARD ASSISTANT
+Built with Goose MCP-UI Extension + Voice/Gesture Control
+================================================================================
+
+=== CATALOG DASHBOARD ===
+Displaying 4 catalog items:
+
+Item Name       Price    Status       Actions
+--------------------------------------------------
+Coffee          $3.00    [ACTIVE] In Stock Toggle | Details
+Sandwich        $7.50    [ACTIVE] In Stock Toggle | Details
+Soup            $5.00    [LOW] Low Stock Toggle | Details
+Muffin          $2.50    [ACTIVE] In Stock Toggle | Details
+
+Interactive Features:
+   * Click item rows to view details
+   * Toggle buttons change item status
+   * Refresh button updates data
+   * Search bar filters items
+
+=== ORDERS DASHBOARD ===
+Displaying 3 recent orders:
+
+Statistics: 2 Pending | 1 Completed | $7.50 Revenue
+
+Order ID     Customer     Items                Total    Status     Actions
+--------------------------------------------------------------------------------
+order_00...  John Doe     Coffee x1, Muffin x1 $5.50    [PENDING]  Complete | Refund
+order_00...  Jane Smith   Sandwich x1          $7.50    [DONE]     Details
+order_00...  Bob Wilson   Soup x1              $5.00    [PENDING]  Complete | Refund
+
+Interactive Features:
+   * Complete button marks orders as done
+   * Refund button processes returns
+   * Details modal shows order breakdown
+   * Filter by status (Pending/Completed)
+
+=== VOICE COMMANDS (ElevenLabs Integration) ===
+Testing voice recognition:
+
+User says: 'refresh catalog'
+   -> Intent recognized: catalog.refresh
+   -> System responds: Refreshing your catalog items...
+   -> UI updates: Catalog table refreshed
+
+User says: 'show orders'
+   -> Intent recognized: catalog.refresh
+   -> System responds: Loading your recent orders...
+   -> UI updates: Catalog table refreshed
+
+User says: 'help'
+   -> Intent recognized: catalog.refresh
+   -> System responds: Available commands: refresh catalog, show orders, help
+   -> UI updates: Catalog table refreshed
+
+Voice Features:
+   * ElevenLabs STT converts speech to text
+   * Intent recognition routes to correct action
+   * TTS provides audio feedback
+   * UI updates automatically reflect changes
+
+=== GESTURE CONTROLS (MediaPipe Integration) ===
+Gesture recognition demo:
+
+Thumb Up: Toggle item active/inactive status
+   -> Camera detects hand gesture
+   -> Confidence: 85% (above 70% threshold)
+   -> Action triggered: Toggle item active/inactive status
+
+Point Index: Select table row or UI element
+   -> Camera detects hand gesture
+   -> Confidence: 85% (above 70% threshold)
+   -> Action triggered: Select table row or UI element
+
+Open Palm: Refresh current dashboard
+   -> Camera detects hand gesture
+   -> Confidence: 85% (above 70% threshold)
+   -> Action triggered: Refresh current dashboard
+
+Peace Sign: Switch between catalog and orders view
+   -> Camera detects hand gesture
+   -> Confidence: 85% (above 70% threshold)
+   -> Action triggered: Switch between catalog and orders view
+
+Gesture Features:
+   * MediaPipe processes camera input
+   * Hand landmark detection with confidence scoring
+   * Cooldown prevents accidental triggers
+   * Context-aware actions based on selected items
+
+=== MULTIMODAL WORKFLOW DEMO ===
+Scenario: Customer wants refund for soup order
+
+1. VOICE
+   Action: User says: 'show orders'
+   Result: Orders dashboard displays
+
+2. CLICK
+   Action: User clicks on Order #003 (Soup)
+   Result: Order details modal opens
+
+3. GESTURE
+   Action: User gives thumbs up
+   Result: Refund confirmed and processed
+
+4. VOICE
+   Action: System announces: 'Refund complete'
+   Result: Audio confirmation
+
+5. UI UPDATE
+   Action: Order status changes to 'Refunded'
+   Result: Visual feedback
+
+Complete Integration:
+   * Seamless voice -> UI -> gesture -> voice flow
+   * Intent orchestrator coordinates all inputs
+   * Real-time UI updates across all interactions
+   * MCP-UI renders in Goose Desktop environment
+
+=== ARCHITECTURE OVERVIEW ===
+Component Stack:
+   [Goose Desktop] (MCP-UI surface)
+        |
+   [Qanat MCP-UI Extension]
+    |-- ElevenLabs Voice Agent
+    |-- MediaPipe Gesture Agent
+    |-- Intent Orchestrator
+        |
+   [Square MCP Server]
+    |-- Catalog Service
+    |-- Orders Service
+        |
+   [Square API (Sandbox)]
+
+File Structure (17 files created):
+   - demo.py - Complete demo script
+   - backend/mcp_servers/qanat_server.py - MCP-UI server
+   - backend/services/catalog_service.py - Square catalog API
+   - backend/services/orders_service.py - Square orders API
+   - backend/agents/orchestrator.py - Intent routing
+   - backend/agents/voice_agent.py - ElevenLabs integration
+   - backend/agents/gesture_agent.py - MediaPipe integration
+   - backend/ui_components/catalog_dashboard.py - Catalog UI
+   - backend/ui_components/orders_dashboard.py - Orders UI
+   - backend/ui_components/common.py - Click handlers
+   - backend/ui_components/styles.py - UI styling
+   - config/extensions/ - 4 extension config files
+   - config/environments/env_loader.py - Environment loader
+   - docs/ - Architecture and planning docs
+
+=== MVP SUCCESS METRICS ===
+All MVP Requirements Delivered:
+Traceback (most recent call last):
+  File "C:\Users\profe\Documents\projects\qanat_v2\text_demo.py", line 333, in <module>
+    demo.run_demo()
+  File "C:\Users\profe\Documents\projects\qanat_v2\text_demo.py", line 324, in run_demo
+    self.demo_success_metrics()
+  File "C:\Users\profe\Documents\projects\qanat_v2\text_demo.py", line 299, in demo_success_metrics
+    print("   [\u2713] Catalog management (items, pricing, status)")
+  File "C:\Program Files\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 4: character maps to <undefined>

@@ -1,0 +1,43 @@
+{
+  "name": "square-mcp",
+  "type": "mcp-server",
+  "version": "1.0.0",
+  "description": "Square API integration via MCP protocol",
+  "server": {
+    "command": "python",
+    "args": ["-m", "square_mcp_server"],
+    "env": {
+      "SQUARE_API_KEY": "${SQUARE_API_KEY}",
+      "SQUARE_ENVIRONMENT": "${SQUARE_ENVIRONMENT}",
+      "SQUARE_APPLICATION_ID": "${SQUARE_APPLICATION_ID}"
+    }
+  },
+  "capabilities": [
+    "catalog.list",
+    "catalog.get",
+    "catalog.update",
+    "orders.list", 
+    "orders.get",
+    "orders.update",
+    "payments.list",
+    "refunds.create"
+  ],
+  "tools": [
+    {
+      "name": "get_catalog_items",
+      "description": "Retrieve catalog items from Square"
+    },
+    {
+      "name": "toggle_item_status", 
+      "description": "Enable/disable catalog item"
+    },
+    {
+      "name": "get_recent_orders",
+      "description": "Fetch recent orders from Square"
+    },
+    {
+      "name": "get_order_details",
+      "description": "Get detailed order information"
+    }
+  ]
+}

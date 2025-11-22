@@ -1,0 +1,48 @@
+{
+  "name": "elevenlabs-voice",
+  "type": "voice-agent", 
+  "version": "1.0.0",
+  "description": "ElevenLabs voice input/output integration",
+  "config": {
+    "api_key": "${ELEVENLABS_API_KEY}",
+    "voice_id": "${ELEVENLABS_VOICE_ID}",
+    "model": "eleven_monolingual_v1",
+    "voice_settings": {
+      "stability": 0.75,
+      "similarity_boost": 0.75,
+      "style": 0.0,
+      "use_speaker_boost": true
+    }
+  },
+  "capabilities": {
+    "speech_to_text": true,
+    "text_to_speech": true,
+    "real_time": false
+  },
+  "voice_commands": [
+    {
+      "trigger": ["refresh catalog", "update catalog", "reload items"],
+      "intent": "catalog.refresh",
+      "target": "get_catalog_items",
+      "response": "Refreshing your catalog items..."
+    },
+    {
+      "trigger": ["show orders", "view orders", "recent orders"],
+      "intent": "orders.view", 
+      "target": "get_recent_orders",
+      "response": "Loading your recent orders..."
+    },
+    {
+      "trigger": ["help", "what can you do"],
+      "intent": "help",
+      "target": "show_help",
+      "response": "I can help you manage your Square catalog and orders. Try saying 'refresh catalog' or 'show orders'."
+    }
+  ],
+  "audio_settings": {
+    "input_device": "default",
+    "sample_rate": 16000,
+    "channels": 1,
+    "chunk_size": 1024
+  }
+}

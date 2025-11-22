@@ -1,0 +1,61 @@
+{
+  "name": "mediapipe-gesture",
+  "type": "gesture-agent",
+  "version": "1.0.0", 
+  "description": "MediaPipe hand gesture recognition for UI control",
+  "config": {
+    "model_path": "${MEDIAPIPE_MODEL_PATH}",
+    "confidence_threshold": "${MEDIAPIPE_CONFIDENCE_THRESHOLD}",
+    "max_hands": 2,
+    "model_complexity": 1,
+    "min_detection_confidence": 0.5,
+    "min_tracking_confidence": 0.5
+  },
+  "camera_settings": {
+    "device_id": 0,
+    "width": 640,
+    "height": 480,
+    "fps": 30
+  },
+  "gesture_mappings": [
+    {
+      "gesture": "thumb_up",
+      "intent": "catalog.toggle_status",
+      "target": "toggle_item_status",
+      "description": "Toggle item active/inactive status",
+      "cooldown_ms": 1000
+    },
+    {
+      "gesture": "point_index", 
+      "intent": "ui.select",
+      "target": "select_table_row",
+      "description": "Select table row or UI element",
+      "cooldown_ms": 500
+    },
+    {
+      "gesture": "open_palm",
+      "intent": "ui.refresh",
+      "target": "refresh_current_view", 
+      "description": "Refresh current dashboard",
+      "cooldown_ms": 2000
+    },
+    {
+      "gesture": "peace_sign",
+      "intent": "navigation.switch_view",
+      "target": "toggle_catalog_orders",
+      "description": "Switch between catalog and orders view",
+      "cooldown_ms": 1500
+    }
+  ],
+  "detection_zones": {
+    "primary": {
+      "x": 0.2, "y": 0.2, "width": 0.6, "height": 0.6,
+      "description": "Main interaction area"
+    }
+  },
+  "feedback": {
+    "visual_indicators": true,
+    "gesture_trail": true,
+    "confirmation_beep": false
+  }
+}
