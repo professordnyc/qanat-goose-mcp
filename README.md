@@ -168,6 +168,7 @@ MIT License - see LICENSE file for details.
 ---
 
 *Built with ❤️ for Square sellers using Goose Desktop*
+#Block #Goose 
 
 ## Contact
 
