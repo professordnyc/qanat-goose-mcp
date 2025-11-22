@@ -1,5 +1,7 @@
 ## Qanat Goose MCP Extension
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 🔄 Looking for the standalone prototype? See [Qanat](https://github.com/professordnyc/Qanat).
 
 Qanat Goose MCP Extension is an agent‑based Goose MCP‑UI extension that wraps the Square MCP Server, integrating sandbox catalog/orders with voice and gesture agents for an interactive seller dashboard.
